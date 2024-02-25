@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+// Database object keys: username, email, password, date.
+
 const AuthSchema = new mongoose.Schema({
     username: {
         type: String,
