@@ -17,7 +17,7 @@ const register = async (req, res) => {
 
         const passwordHash = await bcrypt.hash(password, 12);  // hashed password
 
-        const newUser = await AuthSchema.create({ username, email, password: passwordHash })
+        const newUser = await AuthSchema.create({ username, email, password: passwordHash });
         const userToken = jwt.sign({ id: newUser.id }, process.env.SECRET_TOKEN, { expiresIn: "1h" });
 
         res.status(201).json({
