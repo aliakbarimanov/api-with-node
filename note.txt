@@ -1,3 +1,0 @@
-install npm packages
-
-npm i express cors nodemon jsonwebtoken bcryptjs mongoose dotenv
