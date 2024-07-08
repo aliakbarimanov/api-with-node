@@ -4,8 +4,34 @@ npm i express cors nodemon jsonwebtoken bcryptjs mongoose dotenv
 
  - again
 
+----------------------------------------------------------------
+
 npm init -y
 npm i express
 npm i --save-dev nodemon
 
 npm run nodemon
+
+----------------------------------------------------------------
+
+routes
+models
+middleware
+views
+controllers
+
+
+routes
+    express = require("express")
+    router = express.Router()
+
+    module.exports = router
+
+
+//! ----------------------------------------------------------------------
+
+npm packages
+
+express
+nodemon
+dotenv
