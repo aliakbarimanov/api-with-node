@@ -9,6 +9,7 @@ npm i express cors nodemon jsonwebtoken bcryptjs mongoose dotenv
 npm init -y
 npm i express
 npm i --save-dev nodemon
+npm i mongoose
 
 npm run nodemon
 
@@ -40,3 +41,9 @@ dotenv
 //! ----------------------------------------------------------------------
 
 for post we send BODY and we create on server.js 
+
+//! ----------------------------------------------------------------------
+
+npm i mongoose
+
+//! ----------------------------------------------------------------------
