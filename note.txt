@@ -35,3 +35,8 @@ npm packages
 express
 nodemon
 dotenv
+
+
+//! ----------------------------------------------------------------------
+
+for post we send BODY and we create on server.js 
