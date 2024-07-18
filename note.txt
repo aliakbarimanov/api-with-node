@@ -20,6 +20,7 @@ models
 middleware
 views
 controllers
+config
 
 
 routes
@@ -47,3 +48,5 @@ for post we send BODY and we create on server.js
 npm i mongoose
 
 //! ----------------------------------------------------------------------
+
+when mongodb ip address is changed project was bump (is not working).

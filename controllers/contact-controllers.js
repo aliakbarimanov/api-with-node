@@ -1,7 +1,9 @@
 // const asyncHandler = require("express-async-handler");
+// const Contact = require("../models/contact-model");
 
 // const getContacts = asyncHandler(async (req, res) => {
-//     res.status(200).json({ message: "Get contacts with controller." });
+//     const contacts = await Contact.find();
+//     res.status(200).json(contacts);
 // });
 
 // const getContact = asyncHandler(async (req, res) => {
@@ -32,10 +34,13 @@
 // };
 
 
-// const asyncHandler = require("express-async-handler");
+
+const Contact = require("../models/contact-model");
 
 const getContacts = async (req, res) => {
-    res.status(200).json({ message: "Get contacts with controller." });
+
+    const contacts = await Contact.find();
+    res.status(200).json(contacts);
 };
 
 const getContact = async (req, res) => {
@@ -46,7 +51,20 @@ const createContact = async (req, res) => {
 
     console.log("The req body is:", req.body);
 
-    res.status(200).json({ message: "Create contact with controller." });
+    const { name, email, phone } = req.body;
+
+    if (!name || !email || !phone) {
+        res.status(400);
+        throw new Error("All inputs are empty!");
+    }
+
+    const contact = await Contact.create({
+        name,
+        email,
+        phone
+    });
+
+    res.status(201).json(contact);
 };
 
 const updateContact = async (req, res) => {
