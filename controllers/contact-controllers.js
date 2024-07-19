@@ -44,20 +44,24 @@ const getContacts = async (req, res) => {
 };
 
 const getContact = async (req, res) => {
-    res.status(200).json({ message: `Get contact with controller for ${req.params.id} id` });
+
+    const contact = await Contact.findById(req.params.id);
+
+    if (!contact) {
+        res.status(404);
+        throw new Error("Contact is not find!");
+    }
+
+    res.status(200).json(contact);
 };
 
 const createContact = async (req, res) => {
 
-    console.log("The req body is:", req.body);
-
     const { name, email, phone } = req.body;
-
     if (!name || !email || !phone) {
         res.status(400);
         throw new Error("All inputs are empty!");
     }
-
     const contact = await Contact.create({
         name,
         email,
@@ -68,7 +72,20 @@ const createContact = async (req, res) => {
 };
 
 const updateContact = async (req, res) => {
-    res.status(200).json({ message: `Update contact with controller for ${req.params.id} id` });
+
+    const contact = await Contact.findById(req.params.id);
+    if (!contact) {
+        res.status(404);
+        throw new Error("Contact is not find!");
+    }
+
+    const updatedContact = await Contact.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        { new: true }
+    );
+
+    res.status(200).json(updatedContact);
 };
 
 const deleteContact = async (req, res) => {
