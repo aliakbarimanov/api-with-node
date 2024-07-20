@@ -50,3 +50,9 @@ npm i mongoose
 //! ----------------------------------------------------------------------
 
 when mongodb ip address is changed project was bump (is not working).
+
+//! ----------------------------------------------------------------------
+
+contact.remove() is not working, i am write contact.deleteOne(). ( contact.deleteMany() )
+
+//! ----------------------------------------------------------------------

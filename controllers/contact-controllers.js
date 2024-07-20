@@ -89,7 +89,14 @@ const updateContact = async (req, res) => {
 };
 
 const deleteContact = async (req, res) => {
-    res.status(200).json({ message: `Delete contact with controller for ${req.params.id} id.` });
+
+    const contact = await Contact.findById(req.params.id);
+    if (!contact) {
+        res.status(404);
+        throw new Error("Contact is not find!");
+    }
+    await Contact.deleteOne();
+    res.status(200).json(contact);
 };
 
 module.exports = {
