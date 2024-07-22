@@ -10,6 +10,8 @@ npm init -y
 npm i express
 npm i --save-dev nodemon
 npm i mongoose
+npm i express-async-handler
+npm i bcrypt
 
 npm run nodemon
 

@@ -1,49 +1,13 @@
-// const asyncHandler = require("express-async-handler");
-// const Contact = require("../models/contact-model");
-
-// const getContacts = asyncHandler(async (req, res) => {
-//     const contacts = await Contact.find();
-//     res.status(200).json(contacts);
-// });
-
-// const getContact = asyncHandler(async (req, res) => {
-//     res.status(200).json({ message: `Get contact with controller for ${req.params.id} id` });
-// });
-
-// const createContact = asyncHandler(async (req, res) => {
-
-//     console.log("The req body is:", req.body);
-
-//     res.status(200).json({ message: "Create contact with controller." });
-// });
-
-// const updateContact = asyncHandler(async (req, res) => {
-//     res.status(200).json({ message: `Update contact with controller for ${req.params.id} id` });
-// });
-
-// const deleteContact = asyncHandler(async (req, res) => {
-//     res.status(200).json({ message: `Delete contact with controller for ${req.params.id} id.` });
-// });
-
-// module.exports = {
-//     getContacts,
-//     getContact,
-//     createContact,
-//     updateContact,
-//     deleteContact
-// };
-
-
-
+const asyncHandler = require("express-async-handler");
 const Contact = require("../models/contact-model");
 
-const getContacts = async (req, res) => {
+const getContacts = asyncHandler(async (req, res) => {
 
     const contacts = await Contact.find();
     res.status(200).json(contacts);
-};
+});
 
-const getContact = async (req, res) => {
+const getContact = asyncHandler(async (req, res) => {
 
     const contact = await Contact.findById(req.params.id);
 
@@ -53,9 +17,9 @@ const getContact = async (req, res) => {
     }
 
     res.status(200).json(contact);
-};
+});
 
-const createContact = async (req, res) => {
+const createContact = asyncHandler(async (req, res) => {
 
     const { name, email, phone } = req.body;
     if (!name || !email || !phone) {
@@ -69,9 +33,9 @@ const createContact = async (req, res) => {
     });
 
     res.status(201).json(contact);
-};
+});
 
-const updateContact = async (req, res) => {
+const updateContact = asyncHandler(async (req, res) => {
 
     const contact = await Contact.findById(req.params.id);
     if (!contact) {
@@ -86,9 +50,9 @@ const updateContact = async (req, res) => {
     );
 
     res.status(200).json(updatedContact);
-};
+});
 
-const deleteContact = async (req, res) => {
+const deleteContact = asyncHandler(async (req, res) => {
 
     const contact = await Contact.findById(req.params.id);
     if (!contact) {
@@ -97,7 +61,7 @@ const deleteContact = async (req, res) => {
     }
     await Contact.deleteOne();
     res.status(200).json(contact);
-};
+});
 
 module.exports = {
     getContacts,
