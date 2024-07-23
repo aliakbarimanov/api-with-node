@@ -12,6 +12,7 @@ npm i --save-dev nodemon
 npm i mongoose
 npm i express-async-handler
 npm i bcrypt
+npm i jsonwebtoken (jwt)
 
 npm run nodemon
 
