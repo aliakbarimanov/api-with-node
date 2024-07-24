@@ -65,7 +65,7 @@ const login = async (req, res) => {
 };
 
 const current = async (req, res) => {
-    res.json({ message: "Current user!" });
+    res.json(req.user);
 };
 
 module.exports = {
